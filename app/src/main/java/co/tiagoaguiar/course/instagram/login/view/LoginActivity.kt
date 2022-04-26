@@ -9,33 +9,37 @@ import android.text.TextWatcher
 import android.widget.Button
 import androidx.core.widget.addTextChangedListener
 import co.tiagoaguiar.course.instagram.R
+import co.tiagoaguiar.course.instagram.databinding.ActivityLoginBinding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class LoginActivity : AppCompatActivity() {
+
+  private lateinit var binding: ActivityLoginBinding
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_login)
 
-    val editTextEmail = findViewById<TextInputEditText>(R.id.login_edit_email)
-    val editTextPassword = findViewById<TextInputEditText>(R.id.login_edit_password)
-    val buttonEnter = findViewById<LoadingButton>(R.id.login_btn_enter)
+    binding = ActivityLoginBinding.inflate(layoutInflater)
 
-    editTextEmail.addTextChangedListener(watcher)
-    editTextPassword.addTextChangedListener(watcher)
+    setContentView(binding.root)
 
-    buttonEnter.setOnClickListener{
-      buttonEnter.showProgress(true)
-      findViewById<TextInputLayout>(R.id.login_edit_email_input)
-        .error = "Esse email é inválido"
+    ///IGUAL A binding.loginEditEmail.addTextChangedListener(watcher), mas serve
+    ///para reduzir linhas de código
+    with(binding){
+      loginEditEmail.addTextChangedListener(watcher)
+      binding.loginEditPassword.addTextChangedListener(watcher)
 
-      findViewById<TextInputLayout>(R.id.login_edit_password_input)
-        .error = "Senha incorreta"
+        loginBtnEnter.setOnClickListener{
+        loginBtnEnter.showProgress(true)
+        loginEditEmailInput.error = "Esse email é inválido"
+        loginEditPasswordInput.error = "Senha incorreta"
 
-      Handler(Looper.getMainLooper()).postDelayed({
-        buttonEnter.showProgress(false)
-        ///Faz o delayed de dois segundos,e depois define para falso o que estád entro daqui
-      }, 2000)
+        Handler(Looper.getMainLooper()).postDelayed({
+          loginBtnEnter.showProgress(false)
+          ///Faz o delayed de dois segundos,e depois define para falso o que estád entro daqui
+        }, 2000)
+      }
     }
   }
 
@@ -45,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-      findViewById<LoadingButton>(R.id.login_btn_enter).isEnabled = s.toString().isNotEmpty()
+      binding.loginBtnEnter.isEnabled = s.toString().isNotEmpty()
       ///SE NÃO FOR VAZIO, ELE RETORNA VERDADEIRO E HABILITA O BOTÃO
     }
 

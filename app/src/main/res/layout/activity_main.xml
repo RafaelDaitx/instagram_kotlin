@@ -38,8 +38,8 @@
     <fragment
         android:id="@+id/main_fragment"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:name="co.tiagoaguiar.course.instagram.register.view."
-        tools:layout="@layout/activity_register"
+        android:name="co.tiagoaguiar.course.instagram.view.MainAc"
+        tools:layout="@layout/activity_login"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

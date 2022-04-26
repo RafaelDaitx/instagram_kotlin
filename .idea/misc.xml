@@ -11,8 +11,8 @@
         <entry key="..\:/Projects_Life/Mobile/Kotlin/Instagram/app/src/main/res/drawable/ic_insta_search.xml" value="0.22205128205128205" />
         <entry key="..\:/Projects_Life/Mobile/Kotlin/Instagram/app/src/main/res/drawable/ic_more.xml" value="0.22205128205128205" />
         <entry key="..\:/Projects_Life/Mobile/Kotlin/Instagram/app/src/main/res/drawable/top_bottom_border.xml" value="0.19166666666666668" />
-        <entry key="..\:/Projects_Life/Mobile/Kotlin/Instagram/app/src/main/res/layout/activity_login.xml" value="0.22" />
-        <entry key="..\:/Projects_Life/Mobile/Kotlin/Instagram/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Projects_Life/Mobile/Kotlin/Instagram/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Projects_Life/Mobile/Kotlin/Instagram/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Projects_Life/Mobile/Kotlin/Instagram/app/src/main/res/layout/activity_register.xml" value="0.209375" />
         <entry key="..\:/Projects_Life/Mobile/Kotlin/Instagram/app/src/main/res/layout/button_loading.xml" value="0.22" />
         <entry key="..\:/Projects_Life/Mobile/Kotlin/Instagram/app/src/main/res/layout/dialog_custom.xml" value="0.33" />
@@ -23,7 +23,7 @@
         <entry key="..\:/Projects_Life/Mobile/Kotlin/Instagram/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
         <entry key="..\:/Projects_Life/Mobile/Kotlin/Instagram/app/src/main/res/layout/fragment_register_email.xml" value="0.22" />
         <entry key="..\:/Projects_Life/Mobile/Kotlin/Instagram/app/src/main/res/layout/fragment_register_password.xml" value="0.22" />
-        <entry key="..\:/Projects_Life/Mobile/Kotlin/Instagram/app/src/main/res/layout/fragment_register_photo.xml" value="0.24010416666666667" />
+        <entry key="..\:/Projects_Life/Mobile/Kotlin/Instagram/app/src/main/res/layout/fragment_register_photo.xml" value="0.33" />
         <entry key="..\:/Projects_Life/Mobile/Kotlin/Instagram/app/src/main/res/layout/fragment_register_welcome.xml" value="0.24010416666666667" />
         <entry key="..\:/Projects_Life/Mobile/Kotlin/Instagram/app/src/main/res/layout/fragment_search.xml" value="0.209375" />
         <entry key="..\:/Projects_Life/Mobile/Kotlin/Instagram/app/src/main/res/layout/item_post_list.xml" value="0.25" />
