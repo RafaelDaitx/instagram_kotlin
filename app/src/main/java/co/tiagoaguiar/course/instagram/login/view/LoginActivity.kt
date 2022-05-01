@@ -1,20 +1,17 @@
 package co.tiagoaguiar.course.instagram.login.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.text.Editable
-import android.text.TextWatcher
-import android.widget.Button
-import androidx.core.widget.addTextChangedListener
-import co.tiagoaguiar.course.instagram.R
+import android.widget.Toast
+import co.tiagoaguiar.course.instagram.common.view.base.DependecyInjector
 import co.tiagoaguiar.course.instagram.common.view.util.TxtWatcher
 import co.tiagoaguiar.course.instagram.databinding.ActivityLoginBinding
 import co.tiagoaguiar.course.instagram.login.Login
+import co.tiagoaguiar.course.instagram.login.data.FakeDataSource
+import co.tiagoaguiar.course.instagram.login.data.LoginRepository
 import co.tiagoaguiar.course.instagram.login.presentation.LoginPresenter
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
+import co.tiagoaguiar.course.instagram.main.view.MainActivity
 
 class LoginActivity : AppCompatActivity(), Login.View {
 
@@ -28,13 +25,15 @@ class LoginActivity : AppCompatActivity(), Login.View {
 
         setContentView(binding.root)
 
-        presenter = LoginPresenter(this)
+        ///Injetando depencência (injeta um objeto para outro obnjeto que depende dele)
+        presenter = LoginPresenter(this, DependecyInjector.loginRepository())
 
         ///IGUAL A binding.loginEditEmail.addTextChangedListener(watcher), mas serve
         ///para reduzir linhas de código
         with(binding) {
-            loginEditPassword.addTextChangedListener(watcher)
             loginEditEmail.addTextChangedListener(watcher)
+            loginEditPassword.addTextChangedListener(watcher)
+
             loginEditEmail.addTextChangedListener(TxtWatcher{
                 displayEmailFailure(null)
             })
@@ -43,12 +42,9 @@ class LoginActivity : AppCompatActivity(), Login.View {
             })
 
             loginBtnEnter.setOnClickListener {
-                presenter.login(loginEditEmail.text.toString(), loginEditEmail.text.toString())
+                presenter.login(loginEditEmail.text.toString(), loginEditPassword.text.toString())
                 ///PASSANDO DADOS PARA O PRESENTER(INTERFACE) TRATAR LÁ
-// TESTES -> Handler(Looper.getMainLooper()).postDelayed({
-//          loginBtnEnter.showProgress(false)
-//          ///Faz o delayed de dois segundos,e depois define para falso o que estád entro daqui
-//        }, 2000)
+
             }
         }
     }
@@ -80,11 +76,13 @@ class LoginActivity : AppCompatActivity(), Login.View {
     }
 
     override fun onUserAuthenticated() {
-        TODO("Not yet implemented")
+       val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
     }
 
-    override fun onUserUnathorized() {
-        TODO("Not yet implemented")
+    override fun onUserUnathorized(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
 }

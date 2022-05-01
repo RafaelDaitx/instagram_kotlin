@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    tools:context=".main.view.MainActivity">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@
     <fragment
         android:id="@+id/main_fragment"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:name="co.tiagoaguiar.course.instagram.view.MainAc"
+        android:name="co.tiagoaguiar.course.instagram.camera.view.FragmentCamera"
         tools:layout="@layout/activity_login"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
